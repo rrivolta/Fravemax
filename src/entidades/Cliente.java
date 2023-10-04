@@ -4,23 +4,25 @@ public class Cliente {
 
     private String apellido, nombre, domicilio, telefono;
     private int idCliente;
-
+    private boolean estado;
     public Cliente() {
     }
 
-    public Cliente(String apellido, String nombre, String domicilio, String telefono) {
+    public Cliente(String apellido, String nombre, String domicilio, String telefono, boolean estado) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.domicilio = domicilio;
         this.telefono = telefono;
+        this.estado = estado;
     }
 
-    public Cliente(String apellido, String nombre, String domicilio, String telefono, int idCliente) {
+    public Cliente(String apellido, String nombre, String domicilio, String telefono, int idCliente, boolean estados) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.idCliente = idCliente;
+        this.estado = estado;
     }
 
     public String getApellido() {
@@ -63,10 +65,22 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
-        return "Cliente{" + "apellido=" + apellido + ", nombre=" + nombre + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idCliente=" + idCliente + '}';
+        return "Cliente{" + "apellido=" + apellido + ", nombre=" + nombre + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idCliente=" + idCliente + ", estado=" + estado + '}';
     }
+     
+    
+   
+    
      
     
 }

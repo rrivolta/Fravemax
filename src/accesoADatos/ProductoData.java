@@ -1,6 +1,9 @@
 package accesoADatos;
+
 import entidades.Producto;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ProductoData {
@@ -34,9 +37,8 @@ public class ProductoData {
             JOptionPane.showMessageDialog(null, "Error al registrar el producto en la base de datos.");
 
         }
-    }  
-   
-    
+    }
+
     public void modificarProducto(Producto producto) {
         String sql = "UPDATE producto SET nombreProducto = ?, descripcion = ?, precioActual = ?, stock = ?, estado = ? where idProducto = ?";
         try {
@@ -59,7 +61,7 @@ public class ProductoData {
             JOptionPane.showMessageDialog(null, "Error al modificar el producto en la base de datos.");
 
         }
-        
+
     }
 
     public void eliminarProducto(int id) {
@@ -79,6 +81,33 @@ public class ProductoData {
 
     }
 
+    public List<Producto> listarProductos() {
+        String sql = "SELECT idProducto, nombreProducto, descripcion, precioActual, stock, estado FROM  producto ";
+
+        List<Producto> productos = new ArrayList<>();
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ResultSet result = ps.executeQuery();
+
+            while (result.next()) {
+                Producto prod = new Producto();
+                prod.setIdProdructo(result.getInt("idProducto"));
+                prod.setNombreProducto(result.getString("nombreProducto"));
+                prod.setDescripcion(result.getString("descripcion"));
+                prod.setPrecioActual(result.getDouble("precioActual"));
+                prod.setStock(result.getInt("stock"));
+                productos.add(prod);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla productos");
+
+        }
+        return productos;
+    }
+
+    
 }
 
 
