@@ -28,7 +28,7 @@ public class ProductoData {
             ps.executeUpdate();
             ResultSet resul = ps.getGeneratedKeys();
             if (resul.next()) {
-                producto.setIdProdructo(resul.getInt(1));
+                producto.setIdProducto(resul.getInt(1));
                 JOptionPane.showMessageDialog(null, "Producto registrado con éxito.");
             }
             ps.close();
@@ -49,7 +49,7 @@ public class ProductoData {
             ps.setDouble(3, producto.getPrecioActual());
             ps.setInt(4, producto.getStock());
             ps.setBoolean(5, producto.isEstado());
-            ps.setInt(6, producto.getIdProdructo());
+            ps.setInt(6, producto.getIdProducto());
             int exito = ps.executeUpdate();
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Producto modificado");
@@ -91,7 +91,7 @@ public class ProductoData {
 
             while (result.next()) {
                 Producto prod = new Producto();
-                prod.setIdProdructo(result.getInt("idProducto"));
+                prod.setIdProducto(result.getInt("idProducto"));
                 prod.setNombreProducto(result.getString("nombreProducto"));
                 prod.setDescripcion(result.getString("descripcion"));
                 prod.setPrecioActual(result.getDouble("precioActual"));
@@ -104,11 +104,37 @@ public class ProductoData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla productos");
 
         }
-        return productos;
+        return productos;    
+    }
+    
+    public Producto buscarProducto(int idProducto) {
+        String sql = "SELECT nombreProducto, descripcion, precioActual, stock, estado FROM  producto "
+                + "WHERE idProducto=? AND estado=1";
+        Producto prod = null;
+
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setInt(1, idProducto);
+            ResultSet result = ps.executeQuery();
+            if (result.next()) {
+                prod = new Producto();
+                prod.setIdProducto(idProducto);
+                prod.setNombreProducto(result.getString("nombreProducto"));
+                prod.setDescripcion(result.getString("descripcion"));
+                prod.setPrecioActual(result.getDouble("precioActual"));
+                prod.setStock(result.getInt("stock"));
+                prod.setEstado(true);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto");
+        }
+        return prod;
     }
 
-    
 }
+    
+
 
 
 

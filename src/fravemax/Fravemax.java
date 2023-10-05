@@ -9,6 +9,7 @@ import entidades.Cliente;
 import entidades.Producto;
 import entidades.Venta;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 import javax.swing.JOptionPane;
 public class Fravemax {
@@ -16,7 +17,7 @@ public class Fravemax {
    
     public static void main(String[] args) {
         
-       Connection conexion = Conexion.getConexion();
+       //Connection conexion = Conexion.getConexion();
         ProductoData pd=new ProductoData();
    
         /*Producto producto = new Producto (10, "Aire Acondicionado", "Aire Acondicionado 2250 Frigorias", 255.089, true);
@@ -46,7 +47,18 @@ public class Fravemax {
          //cd.modificarCliente(cliente);*/
    
         //cd.eliminarCliente(1);
-    } 
+    
         VentaData vd = new VentaData();
-        Venta venta = new Venta(cliente,LocalDate.now());
+        Venta venta = new Venta(1,cliente,LocalDate.of(2022, 06, 23));
+        //vd.registrarVenta(venta);
+
+        //vd.modificarVenta(venta);
+    
+        //vd.eliminarVenta(1);
+        
+        
+        System.out.println(pd.buscarProducto(4).toString());
+    }
+        
+    
 }
