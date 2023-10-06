@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class VentaData {
@@ -97,6 +100,30 @@ public class VentaData {
         return venta;
     }
 
+        public List<Venta> listarVentaXFecha(LocalDate fecha){
+            String sql = "SELECT idVenta FROM venta WHERE fechaVenta=?";
+
+            List<Venta> ventas = new ArrayList<>();
+            try {
+                PreparedStatement ps = conexion.prepareStatement(sql);
+                ps.setDate(1, Date.valueOf(fecha));
+                ResultSet result = ps.executeQuery();
+
+                while (result.next()) {
+                    Venta venta = new Venta();
+                    venta = buscarVenta(result.getInt("idVenta"));
+                    
+                    ventas.add(venta);
+                }
+
+                ps.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Cliente");
+
+            }
+            return ventas;
+            }
+        
     
     
     }

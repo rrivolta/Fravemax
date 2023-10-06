@@ -9,11 +9,11 @@ import entidades.DetalleVenta;
 import entidades.Producto;
 import entidades.Venta;
 import java.sql.Connection;
-import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 import javax.swing.JOptionPane;
 import accesoADatos.DetalleVtaData;
+import java.time.LocalDate;
 
 public class Fravemax {
 
@@ -59,7 +59,7 @@ public class Fravemax {
 //        //vd.eliminarVenta(1);
 //      
         Cliente cliente = new Cliente("Gonzalez", "Ricardo Ricardo", "malabia 3344", "1160326754", 1, true);
-        Venta v1 = new Venta(cliente, LocalDate.now());
+        Venta v1 = new Venta(cliente, LocalDate.now(),true);
         VentaData vd = new VentaData();
         vd.registrarVenta(v1);
         DetalleVenta dv = new DetalleVenta(v1);
@@ -72,6 +72,10 @@ public class Fravemax {
         dv.agregarProducto(producto2);
         DetalleVtaData dvd = new DetalleVtaData();
         dvd.registrarDetalle(dv);
+        
+        //VentaData vd = new VentaData();
+        //System.out.println(vd.listarVentaXFecha(LocalDate.of(2023, 10, 06)));
+        
     }
 
 }
