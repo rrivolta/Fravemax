@@ -82,6 +82,4 @@ public class Producto {
         return "Producto{" + "idProdructo=" + idProducto + ", stock=" + stock + ", nombreProducto=" + nombreProducto + ", descripcion=" + descripcion + ", precioActual=" + precioActual + ", estado=" + estado + '}';
     }
      
-    
-    
 }

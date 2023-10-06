@@ -33,16 +33,14 @@ public class ProductoData {
             }
             ps.close();
         } catch (SQLException e) {
-
             JOptionPane.showMessageDialog(null, "Error al registrar el producto en la base de datos.");
-
         }
     }
 
     public void modificarProducto(Producto producto) {
         String sql = "UPDATE producto SET nombreProducto = ?, descripcion = ?, precioActual = ?, stock = ?, estado = ? where idProducto = ?";
+        
         try {
-
             PreparedStatement ps = conexion.prepareStatement(sql);
             ps.setString(1, producto.getNombreProducto());
             ps.setString(2, producto.getDescripcion());
@@ -57,11 +55,8 @@ public class ProductoData {
             ps.close();
 
         } catch (SQLException e) {
-
             JOptionPane.showMessageDialog(null, "Error al modificar el producto en la base de datos.");
-
         }
-
     }
 
     public void eliminarProducto(int id) {
@@ -78,7 +73,6 @@ public class ProductoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
         }
-
     }
 
     public List<Producto> listarProductos() {
@@ -102,7 +96,6 @@ public class ProductoData {
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla productos");
-
         }
         return productos;    
     }

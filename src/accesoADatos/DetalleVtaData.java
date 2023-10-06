@@ -15,11 +15,11 @@ import javax.swing.JOptionPane;
 
 public class DetalleVtaData {
 
-     private Connection conexion = null;
+    private Connection conexion = null;
 
     public DetalleVtaData() {
         conexion = Conexion.getConexion();
-}
+    }
     
     public void registrarDetalle(DetalleVenta detalleVenta) {
         String sql = "INSERT INTO detalleVenta (cantidad, idVenta, precioVenta, idProducto) VALUES (?, ?, ?, ?)";
@@ -31,7 +31,7 @@ public class DetalleVtaData {
             precioTotal += ocurrencias * prod.getPrecioActual();
             
             double num1 = Math.round(precioTotal*100.0)/100.0;
-            System.out.println(num1);
+            //System.out.println(num1);
             
             try {
                 PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -52,9 +52,4 @@ public class DetalleVtaData {
         }
     }
 
-    
-    
-    
-    
-    
 }

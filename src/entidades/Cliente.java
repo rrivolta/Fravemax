@@ -5,6 +5,7 @@ public class Cliente {
     private String apellido, nombre, domicilio, telefono;
     private int idCliente;
     private boolean estado;
+    
     public Cliente() {
     }
 

@@ -21,8 +21,8 @@ public class ClienteData {
 
     public void registrarCliente(Cliente cliente) {
         String sql = "INSERT INTO cliente (idCliente, apellido,nombre,domicilio,telefono,estado) VALUES (?, ?, ?, ?, ?,?)";
+        
         try {
-
             PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setInt(1, cliente.getIdCliente());
@@ -39,16 +39,14 @@ public class ClienteData {
             }
             ps.close();
         } catch (SQLException e) {
-
             JOptionPane.showMessageDialog(null, "Error al registrar al cliente en la base de datos.");
-
         }
     }
 
     public void modificarCliente(Cliente cliente) {
         String sql = "UPDATE cliente SET apellido = ?, nombre = ?, domicilio = ?, telefono= ?, estado = ? where idCliente = ?";
+        
         try {
-
             PreparedStatement ps = conexion.prepareStatement(sql);
             ps.setString(1, cliente.getApellido());
             ps.setString(2, cliente.getNombre());
@@ -61,13 +59,9 @@ public class ClienteData {
                 JOptionPane.showMessageDialog(null, "Cliente modificado");
             }
             ps.close();
-
         } catch (SQLException e) {
-
             JOptionPane.showMessageDialog(null, "Error al modificar el cliente en la base de datos.");
-
         }
-
     }
 
     public void eliminarCliente(int id) {
@@ -84,7 +78,6 @@ public class ClienteData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla cliente");
         }
-
     }
 
     public List<Cliente> listarClientes() {
@@ -105,11 +98,9 @@ public class ClienteData {
                 cli.setEstado(result.getBoolean("estado"));
                 clientes.add(cli);
             }
-
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Cliente");
-
         }
         return clientes;
     }
