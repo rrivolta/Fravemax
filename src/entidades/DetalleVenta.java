@@ -1,28 +1,29 @@
 package entidades;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class DetalleVenta {
-
     private int idDetalleVenta, cantidad;
     private Venta venta;
-    private List<Producto>productos;
+    private List<Producto> productos;
     private double precioVenta;
 
     public DetalleVenta() {
     }
 
     public DetalleVenta(Venta venta) {
-
         this.venta = venta;
         this.productos =new ArrayList<Producto>();
         this.precioVenta=0;
     }
 
-    public DetalleVenta(int idDetalleVenta, int cantidad, Venta venta, ArrayList<Producto> productos, double precioVenta) {
+    public DetalleVenta(int idDetalleVenta, int cantidad, Venta venta, List<Producto> productos, double precioVenta) {
         this.idDetalleVenta = idDetalleVenta;
         this.cantidad = cantidad;
         this.venta = venta;
@@ -54,11 +55,11 @@ public class DetalleVenta {
         this.venta = venta;
     }
 
-    public List<Producto> getProducto() {
+    public List<Producto> getProductos() {
         return productos;
     }
 
-    public void setProducto(List producto) {
+    public void setProductos(List producto) {
         this.productos = productos;
     }
 
@@ -75,18 +76,19 @@ public class DetalleVenta {
         return "DetalleVenta{" + "idDetalleVenta=" + idDetalleVenta + ", cantidad=" + cantidad + ", venta=" + venta + ", productos=" + productos + ", precioVenta=" + precioVenta + '}';
     }
     
-    public void agregarProducto(Producto producto){
-    
-    if(producto.getStock()>=1){
-    this.productos.add(producto);   
-    this.precioVenta+=producto.getPrecioActual();
-    }else{
-        JOptionPane.showMessageDialog(null, "Sin Stock");
+    public void agregarProducto(Producto producto) {
+        if (producto.getStock() >= 1) {
+            this.productos.add(producto);
+            this.precioVenta += producto.getPrecioActual();
+        } else {
+            JOptionPane.showMessageDialog(null, "Sin Stock");
+        }
     }
+
+    public int cantidadDeOcurrencias(Producto producto) {
+        return Collections.frequency(this.productos, producto);
     }
-    public int cantidadDeOcurrencias(Producto producto){
-        return Collections.frequency(productos, producto);
-    }
+   
   
 }
 

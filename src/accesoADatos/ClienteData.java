@@ -113,4 +113,26 @@ public class ClienteData {
         }
         return clientes;
     }
+    
+    public Cliente buscarCliente(int idCliente) {
+        String sql = "SELECT apellido, nombre, domicilio, telefono, estado FROM cliente "
+                + "WHERE estado=1";
+        Cliente cli = new Cliente();
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setInt(1, idCliente);
+            ResultSet result = ps.executeQuery();
+            if (result.next()) {
+                cli.setApellido("apellido");
+                cli.setNombre("nombre");
+                cli.setDomicilio("domicilio");
+                cli.setTelefono("telefono");
+                cli.setIdCliente(idCliente);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto");
+        }
+        return cli;
+    }
 }
