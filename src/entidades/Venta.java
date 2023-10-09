@@ -57,6 +57,8 @@ public class Venta {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+    
+    
 
     @Override
     public String toString() {

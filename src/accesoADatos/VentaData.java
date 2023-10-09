@@ -100,23 +100,45 @@ public class VentaData {
     }
 
     public List<Venta> listarVentaXFecha(LocalDate fecha){
-        String sql = "SELECT idVenta FROM venta WHERE fechaVenta=?";
-
+        String sql = "SELECT idVenta, idCliente, estado FROM venta WHERE fechaVenta=?";
         List<Venta> ventas = new ArrayList<>();
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
             ps.setDate(1, Date.valueOf(fecha));
             ResultSet result = ps.executeQuery();
-
             while (result.next()) {
                 Venta venta = new Venta();
-                venta = buscarVenta(result.getInt("idVenta"));
+                venta.setIdVenta(result.getInt("idVenta"));
+                ClienteData cd = new ClienteData();
+                Cliente cli = cd.buscarCliente(result.getInt("idCliente"));
+                venta.setCliente(cli);
+                venta.setEstado(result.getBoolean("estado"));
                 ventas.add(venta);
             }
-
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Cliente");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla venta");
+        }
+        return ventas;
+    }
+    
+    public List<Venta> listarVentaXCliente(Cliente cliente){
+        String sql = "SELECT idVenta, fechaVenta, estado FROM venta WHERE idCliente=?";
+        List<Venta> ventas = new ArrayList<>();
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setInt(1, cliente.getIdCliente());
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+                Venta venta = new Venta();
+                venta.setIdVenta(result.getInt("idVenta"));
+                venta.setFechaVenta(result.getDate("fechaVenta").toLocalDate());
+                venta.setEstado(result.getBoolean("estado"));
+                ventas.add(venta);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla venta");
         }
         return ventas;
     }
