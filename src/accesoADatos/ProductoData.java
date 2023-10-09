@@ -2,6 +2,7 @@ package accesoADatos;
 
 import entidades.Producto;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -124,7 +125,35 @@ public class ProductoData {
         }
         return prod;
     }
+    
+    public List<Producto> buscarProductoXFecha (LocalDate fecha, int idVenta){
+        String sql = "SELECT p.idProducto, nombreProducto, descripcion, precioActual "
+                + "FROM producto p JOIN detalleVenta dv ON (p.idProducto = dv.idProducto) "
+                + "JOIN venta v ON (v.idVenta = dv.idVenta) "
+                + "WHERE fechaVenta = ? AND v.idVenta = ?";
+        
+        List<Producto> productos = new ArrayList<>();
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setDate(1, Date.valueOf(fecha));
+            ps.setInt(2, idVenta);
+            ResultSet result = ps.executeQuery();
 
+            while (result.next()) {
+                Producto prod = new Producto();
+                prod.setIdProducto(result.getInt("idProducto"));
+                prod.setNombreProducto(result.getString("nombreProducto"));
+                prod.setDescripcion(result.getString("descripcion"));
+                prod.setPrecioActual(result.getDouble("precioActual"));
+                productos.add(prod);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla productos");
+        }
+        return productos;
+    }
 }
     
 

@@ -58,7 +58,7 @@ public class Fravemax {
 //    
 //        //vd.eliminarVenta(1);
 //      
-        /*Cliente cliente = new Cliente("Gonzalez", "Ricardo Ricardo", "malabia 3344", "1160326754", 1, true);
+        Cliente cliente = new Cliente("Gonzalez", "Ricardo Ricardo", "malabia 3344", "1160326754", 1, true);
         Venta v1 = new Venta(cliente, LocalDate.now(),true);
         VentaData vd = new VentaData();
         vd.registrarVenta(v1);
@@ -71,18 +71,18 @@ public class Fravemax {
         dv.agregarProducto(producto2);
         dv.agregarProducto(producto2);
         DetalleVtaData dvd = new DetalleVtaData();
-        dvd.registrarDetalle(dv);*/
+        dvd.registrarDetalle(dv);
         
-        VentaData vd = new VentaData();
-//        for(Venta venta: vd.listarVentaXFecha(LocalDate.of(2023, 9, 05))){
-//            System.out.println("idVenta "+venta.getIdVenta() +" idCliente "+venta.getCliente().getIdCliente()
-//                    +" estado "+venta.isEstado());
-//        }
-        for(Venta venta: vd.listarVentaXCliente(new Cliente("Gonzalez", "Ricardo Ricardo", "malabia 3344", "1160326754", 1, true))){
-            System.out.println("idVenta "+venta.getIdVenta() +" fecha "+venta.getFechaVenta()
-                    +" estado "+venta.isEstado());
+        /*VentaData vd = new VentaData();
+        System.out.println(vd.listarVentaXFecha(LocalDate.of(2023, 10, 06)));
+        for (Venta mat : vd.listarVentaXFecha(LocalDate.of(2023, 10, 06))) {
+            System.out.println(mat);
         }
         
+        //ClienteData cd = new ClienteData();
+        ProductoData pd = new ProductoData();
+        for (Producto pro : pd.buscarProductoXFecha(LocalDate.of(2023, 10, 06), 12)) {
+            System.out.println(pro);
+        }*/
     }
-
 }
