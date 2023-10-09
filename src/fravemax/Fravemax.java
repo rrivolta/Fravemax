@@ -58,7 +58,7 @@ public class Fravemax {
 //    
 //        //vd.eliminarVenta(1);
 //      
-        Cliente cliente = new Cliente("Gonzalez", "Ricardo Ricardo", "malabia 3344", "1160326754", 1, true);
+        /*Cliente cliente = new Cliente("Gonzalez", "Ricardo Ricardo", "malabia 3344", "1160326754", 1, true);
         Venta v1 = new Venta(cliente, LocalDate.now(),true);
         VentaData vd = new VentaData();
         vd.registrarVenta(v1);
@@ -71,10 +71,13 @@ public class Fravemax {
         dv.agregarProducto(producto2);
         dv.agregarProducto(producto2);
         DetalleVtaData dvd = new DetalleVtaData();
-        dvd.registrarDetalle(dv);
+        dvd.registrarDetalle(dv);*/
         
-        //VentaData vd = new VentaData();
-        //System.out.println(vd.listarVentaXFecha(LocalDate.of(2023, 10, 06)));
+        VentaData vd = new VentaData();
+        System.out.println(vd.listarVentaXFecha(LocalDate.of(2023, 10, 06)));
+        for (Venta mat : vd.listarVentaXFecha(LocalDate.of(2023, 10, 06))) {
+            System.out.println(mat);
+        }
         
     }
 
