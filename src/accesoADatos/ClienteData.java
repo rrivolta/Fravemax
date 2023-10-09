@@ -126,4 +126,33 @@ public class ClienteData {
         }
         return cli;
     }
+    
+    public List<Cliente> clientesXProducto(int idProducto){
+        String sql = "SELECT c.idCliente, apellido, nombre, domicilio, telefono, c.estado FROM cliente c "
+                + "JOIN venta v ON (c.idCliente = v.idVenta) JOIN detalleventa dv "
+                + "ON (dv.idVenta = v.idVenta) JOIN producto p ON (p.idProducto = dv.idProducto) "
+                + "WHERE p.idProducto = ?";
+        
+        List<Cliente> clientes = new ArrayList<>();
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setInt(1, idProducto);
+            ResultSet result = ps.executeQuery();
+
+            while (result.next()) {
+                Cliente cli = new Cliente();
+                cli.setIdCliente(result.getInt("idCliente"));
+                cli.setApellido(result.getString("apellido"));
+                cli.setNombre(result.getString("nombre"));
+                cli.setDomicilio(result.getString("domicilio"));
+                cli.setTelefono(result.getString("telefono"));
+                cli.setEstado(result.getBoolean("estado"));
+                clientes.add(cli);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Cliente");
+        }
+        return clientes;
+    }
 }

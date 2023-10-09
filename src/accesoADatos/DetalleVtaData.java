@@ -30,7 +30,7 @@ public class DetalleVtaData {
             int ocurrencias = detalleVenta.cantidadDeOcurrencias(prod);
             precioTotal += ocurrencias * prod.getPrecioActual();
             
-            double num1 = Math.round(precioTotal*100.0)/100.0;
+            precioTotal = Math.round(precioTotal*100.0)/100.0;
             //System.out.println(num1);
             
             try {
