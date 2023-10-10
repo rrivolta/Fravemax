@@ -1,27 +1,33 @@
 package entidades;
 
-public class DetalleVenta {
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.swing.JOptionPane;
 
-    private int idDetalleVenta, cantindad;
+public class DetalleVenta {
+    private int idDetalleVenta, cantidad;
     private Venta venta;
-    private Producto producto;
+    private List<Producto> productos;
     private double precioVenta;
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int cantindad, Venta venta, Producto producto, double precioVenta) {
-        this.cantindad = cantindad;
+    public DetalleVenta(Venta venta) {
         this.venta = venta;
-        this.producto = producto;
-        this.precioVenta = precioVenta;
+        this.productos =new ArrayList<Producto>();
+        this.precioVenta=0;
     }
 
-    public DetalleVenta(int idDetalleVenta, int cantindad, Venta venta, Producto producto, double precioVenta) {
+    public DetalleVenta(int idDetalleVenta, int cantidad, Venta venta, List<Producto> productos, double precioVenta) {
         this.idDetalleVenta = idDetalleVenta;
-        this.cantindad = cantindad;
+        this.cantidad = cantidad;
         this.venta = venta;
-        this.producto = producto;
+        this.productos = productos;
         this.precioVenta = precioVenta;
     }
 
@@ -34,11 +40,11 @@ public class DetalleVenta {
     }
 
     public int getCantindad() {
-        return cantindad;
+        return cantidad;
     }
 
     public void setCantindad(int cantindad) {
-        this.cantindad = cantindad;
+        this.cantidad = cantindad;
     }
 
     public Venta getVenta() {
@@ -49,12 +55,12 @@ public class DetalleVenta {
         this.venta = venta;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public List<Producto> getProductos() {
+        return productos;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setProductos(List producto) {
+        this.productos = productos;
     }
 
     public double getPrecioVenta() {
@@ -67,10 +73,23 @@ public class DetalleVenta {
 
     @Override
     public String toString() {
-        return "DetalleVenta{" + "idDetalleVenta=" + idDetalleVenta + ", cantindad=" + cantindad + ", venta=" + venta + ", producto=" + producto + ", precioVenta=" + precioVenta + '}';
+        return "DetalleVenta{" + "idDetalleVenta=" + idDetalleVenta + ", cantidad=" + cantidad + ", venta=" + venta + ", productos=" + productos + ", precioVenta=" + precioVenta + '}';
     }
     
-    
-    
-    
+    public void agregarProducto(Producto producto) {
+        if (producto.getStock() >= 1) {
+            this.productos.add(producto);
+            this.precioVenta += producto.getPrecioActual();
+        } else {
+            JOptionPane.showMessageDialog(null, "Sin Stock");
+        }
+    }
+
+    public int cantidadDeOcurrencias(Producto producto) {
+        return Collections.frequency(this.productos, producto);
+    }
+   
 }
+
+    
+

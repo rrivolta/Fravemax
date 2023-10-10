@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 public class Conexion {
     
-    
-    
     private static String URL="jdbc:mariadb://localhost/";
     private static String DB="FraveMax";
     private static String USER="root";
@@ -32,8 +30,4 @@ public class Conexion {
         return  connection;
     }
     
-    
-    
-    
-
 }
