@@ -73,6 +73,7 @@ public class Fravemax {
         DetalleVtaData dvd = new DetalleVtaData();
         dvd.registrarDetalle(dv);
         
+        
         /*VentaData vd = new VentaData();
         System.out.println(vd.listarVentaXFecha(LocalDate.of(2023, 10, 06)));
         for (Venta mat : vd.listarVentaXFecha(LocalDate.of(2023, 10, 06))) {
