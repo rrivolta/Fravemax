@@ -122,7 +122,7 @@ public class ClienteData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Cliente");
         }
         return cli;
     }
