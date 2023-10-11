@@ -236,10 +236,7 @@ public class AdministrarClientes extends javax.swing.JInternalFrame {
             jBnuevo.setEnabled(true);
         }catch (NumberFormatException ex){
             JOptionPane.showMessageDialog(null, "Error en el campo DNI. Ingrese solo numeros");
-        }
-        
-        
-        
+        }     
     }//GEN-LAST:event_jBuscarActionPerformed
 
 
@@ -264,13 +261,12 @@ public class AdministrarClientes extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTNombre;
     private javax.swing.JTextField jTelefono;
     // End of variables declaration//GEN-END:variables
-private void limpiar() {
+    private void limpiar() {
         jTNombre.setText("");
         jTApellido.setText("");
         jTDire.setText("");
         jTelefono.setText("");
-        jTBuscarid.setText("");
-        
+        jTBuscarid.setText("");  
     }
 
     private void activarCampos() {
@@ -287,7 +283,5 @@ private void limpiar() {
         jTelefono.setEditable(false);
 
     }
-  
-        
     
-    }  
+}  
