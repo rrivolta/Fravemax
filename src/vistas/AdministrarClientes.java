@@ -70,8 +70,18 @@ public class AdministrarClientes extends javax.swing.JInternalFrame {
         });
 
         jBModificar.setText("Modificar");
+        jBModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBModificarActionPerformed(evt);
+            }
+        });
 
         jBEliminar.setText("Eliminar");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jBSalir.setText("Salir");
 
@@ -220,27 +230,69 @@ public class AdministrarClientes extends javax.swing.JInternalFrame {
 
     private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarActionPerformed
         jBEliminar.setEnabled(false);
-        jBModificar.setEnabled(false);
-        try{
-            int dni = Integer.parseInt(jTdocumento.getText());
-            AlumnoData ad = new AlumnoData();
-            Alumno al = ad.buscarAlumnoPorDni(dni);
-            //jTdocumento.setText(String.valueOf(al.getDni()));
-            jTapellido.setText(al.getApellido());
-            jTnombre.setText(al.getNombre());
-            jDfecha.setDate(Date.valueOf(al.getFechaNac()));
-            jRadioEstado.setSelected(al.isActivo());
-        }catch(NullPointerException ex){
-            JOptionPane.showMessageDialog(this, "Ingrese un DNI válido");
-            limpiar();
-            jBnuevo.setEnabled(true);
-        }catch (NumberFormatException ex){
-            JOptionPane.showMessageDialog(null, "Error en el campo DNI. Ingrese solo numeros");
-        }
+        jBModificar.setEnabled(true);
+        jBAgregar.setEnabled(false);
+        jBGuardar.setEnabled(false);
         
+        try {
+            int idCliente = Integer.parseInt(jTBuscarid.getText());
+            ClienteData cd = new ClienteData();
+            Cliente cliente = cd.buscarCliente(idCliente);
+            jTNombre.setText(cliente.getNombre());
+            jTApellido.setText(cliente.getApellido());
+            jTDire.setText(cliente.getDomicilio());
+            jTelefono.setText(cliente.getTelefono());
+
+        }catch(NullPointerException ex){
+           
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido");
+            
+       
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Error en el campo IDCliente. Ingrese solo numeros");
+        }
+        limpiar();
         
         
     }//GEN-LAST:event_jBuscarActionPerformed
+
+    private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
+        if (jTNombre.getText().isEmpty() || jTApellido.getText().isEmpty() || jTDire.getText().isEmpty() || jTelefono.getText().isEmpty() || jTBuscarid.getText().isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "No deje campos en blanco");
+            return;
+        }
+
+        String nombre = jTNombre.getText();
+        String apellido = jTApellido.getText();
+        String direccion = jTDire.getText();
+        String telefono = jTelefono.getText();
+
+        ClienteData clientedata = new ClienteData();
+
+        Cliente cliente = clientedata.buscarCliente(Integer.parseInt(jTBuscarid.getText()));
+
+        clientedata.modificarCliente(cliente);
+
+        limpiar();
+
+
+    }//GEN-LAST:event_jBModificarActionPerformed
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+
+        try {
+            int idCliente = Integer.parseInt(jTBuscarid.getText());
+            ClienteData cd = new ClienteData();
+            cd.eliminarCliente(idCliente);
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido");
+         
+        
+        }
+        limpiar();
+
+    }//GEN-LAST:event_jBEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
