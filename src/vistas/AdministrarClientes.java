@@ -84,6 +84,11 @@ public class AdministrarClientes extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jBuscar.setText("Buscar");
         jBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -258,22 +263,26 @@ public class AdministrarClientes extends javax.swing.JInternalFrame {
 
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         if (jTNombre.getText().isEmpty() || jTApellido.getText().isEmpty() || jTDire.getText().isEmpty() || jTelefono.getText().isEmpty() || jTBuscarid.getText().isEmpty()) {
-
+            
             JOptionPane.showMessageDialog(this, "No deje campos en blanco");
             return;
         }
-
+        
         String nombre = jTNombre.getText();
         String apellido = jTApellido.getText();
         String direccion = jTDire.getText();
         String telefono = jTelefono.getText();
-
+        
         ClienteData clientedata = new ClienteData();
-
+        
         Cliente cliente = clientedata.buscarCliente(Integer.parseInt(jTBuscarid.getText()));
-
+        cliente.setNombre(nombre);
+        cliente.setApellido(apellido);
+        cliente.setDomicilio(direccion);
+        cliente.setTelefono(telefono);
+        
         clientedata.modificarCliente(cliente);
-
+        
         limpiar();
 
 
@@ -293,6 +302,10 @@ public class AdministrarClientes extends javax.swing.JInternalFrame {
         limpiar();
 
     }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
