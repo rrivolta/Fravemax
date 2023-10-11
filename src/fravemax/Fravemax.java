@@ -14,6 +14,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import accesoADatos.DetalleVtaData;
 import java.time.LocalDate;
+import vistas.AdministrarClientes;
 
 public class Fravemax {
 
@@ -58,20 +59,20 @@ public class Fravemax {
 //    
 //        //vd.eliminarVenta(1);
 //      
-        Cliente cliente = new Cliente("Gonzalez", "Ricardo Ricardo", "malabia 3344", "1160326754", 1, true);
+        /*Cliente cliente = new Cliente("Gonzalez", "Ricardo Ricardo", "malabia 3344", "1160326754", 1, true);
         Venta v1 = new Venta(cliente, LocalDate.now(),true);
         VentaData vd = new VentaData();
         vd.registrarVenta(v1);
         DetalleVenta dv = new DetalleVenta(v1);
-        Producto producto1 = new Producto(1, 10, "Ventilador", "Ventilador 3 velocidades", 55.200, true);
+        Producto producto1 = new Producto( 1, "Ventilador", "Ventilador 3 velocidades", 55.200,10, true);
         dv.agregarProducto(producto1);
         dv.agregarProducto(producto1);
         dv.agregarProducto(producto1);
-        Producto producto2 = new Producto(5, 10, "licuadora liliana", "licuadora liliana de 3 velocidades con vaso irrompible.", 85.000, true);
+        Producto producto2 = new Producto(5, "licuadora liliana", "licuadora liliana de 3 velocidades con vaso irrompible.", 85.000, 10, true);
         dv.agregarProducto(producto2);
         dv.agregarProducto(producto2);
         DetalleVtaData dvd = new DetalleVtaData();
-        dvd.registrarDetalle(dv);
+        dvd.registrarDetalle(dv);*/
         
         
         /*VentaData vd = new VentaData();
@@ -85,5 +86,8 @@ public class Fravemax {
         for (Producto pro : pd.buscarProductoXFecha(LocalDate.of(2023, 10, 06), 12)) {
             System.out.println(pro);
         }*/
+        
+        
+        
     }
 }
