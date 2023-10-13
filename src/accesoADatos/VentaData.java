@@ -79,7 +79,7 @@ public class VentaData {
     
     public Venta buscarVenta(int idVenta) {
         String sql = "SELECT idCliente, fechaVenta FROM  venta "
-                + "WHERE idVenta=? AND estado=1";
+                + "WHERE idVenta=?";
         Venta venta = new Venta();
         ClienteData cd = new ClienteData();
         try {
@@ -128,6 +128,26 @@ public class VentaData {
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
             ps.setInt(1, cliente.getIdCliente());
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+                Venta venta = new Venta();
+                venta.setIdVenta(result.getInt("idVenta"));
+                venta.setFechaVenta(result.getDate("fechaVenta").toLocalDate());
+                venta.setEstado(result.getBoolean("estado"));
+                ventas.add(venta);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla venta");
+        }
+        return ventas;
+    }
+    
+    public List<Venta> listarVentas(){
+        String sql = "SELECT idVenta, idCliente, fechaVenta, estado FROM venta";
+        List<Venta> ventas = new ArrayList<>();
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
             ResultSet result = ps.executeQuery();
             while (result.next()) {
                 Venta venta = new Venta();

@@ -101,9 +101,35 @@ public class ProductoData {
         return productos;    
     }
     
+     public List<Producto> listarProductosActivos() {
+        String sql = "SELECT idProducto, nombreProducto, descripcion, precioActual, stock FROM  producto "
+                + "WHERE estado=1";
+
+        List<Producto> productos = new ArrayList<>();
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ResultSet result = ps.executeQuery();
+
+            while (result.next()) {
+                Producto prod = new Producto();
+                prod.setIdProducto(result.getInt("idProducto"));
+                prod.setNombreProducto(result.getString("nombreProducto"));
+                prod.setDescripcion(result.getString("descripcion"));
+                prod.setPrecioActual(result.getDouble("precioActual"));
+                prod.setStock(result.getInt("stock"));
+                productos.add(prod);
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla productos");
+        }
+        return productos;    
+    }
+    
     public Producto buscarProducto(int idProducto) {
         String sql = "SELECT nombreProducto, descripcion, precioActual, stock, estado FROM  producto "
-                + "WHERE idProducto=? AND estado=1";
+                + "WHERE idProducto=?";
         Producto prod = null;
 
         try {
