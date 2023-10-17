@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.swing.JOptionPane;
 
@@ -31,7 +33,6 @@ public class DetalleVtaData {
             precioTotal += ocurrencias * prod.getPrecioActual();
             
             precioTotal = Math.round(precioTotal*100.0)/100.0;
-            //System.out.println(num1);
             
             try {
                 PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -50,6 +51,29 @@ public class DetalleVtaData {
                 JOptionPane.showMessageDialog(null, "Error al registrar el detalle en la base de datos.");
             }
         }
+    }
+    
+    public DetalleVenta buscarDetalle(int idVenta) {
+        String sql = "SELECT idProducto, cantidad, precioVenta FROM detalleventa WHERE idVenta=?";
+        DetalleVenta dv = null;
+        List<Producto> productos = new ArrayList<>();
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setInt(1, idVenta);
+            ResultSet result = ps.executeQuery();
+            while (result.next()) {
+                ProductoData pd = new ProductoData();
+                Producto prod = pd.buscarProducto(result.getInt("idProducto"));
+                productos.add(prod);
+            }
+            VentaData vd = new VentaData();
+            Venta venta = vd.buscarVenta(idVenta);
+            dv = new DetalleVenta(venta, productos);
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Detalle Venta");
+        }
+        return dv;
     }
 
 }

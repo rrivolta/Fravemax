@@ -9,7 +9,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class DetalleVenta {
-    private int idDetalleVenta, cantidad;
+    private int idDetalleVenta;
     private Venta venta;
     private List<Producto> productos;
     private double precioVenta;
@@ -22,10 +22,14 @@ public class DetalleVenta {
         this.productos =new ArrayList<Producto>();
         this.precioVenta=0;
     }
+    
+    public DetalleVenta(Venta venta, List<Producto> productos) {
+        this.venta = venta;
+        this.productos = productos;
+    }
 
-    public DetalleVenta(int idDetalleVenta, int cantidad, Venta venta, List<Producto> productos, double precioVenta) {
+    public DetalleVenta(int idDetalleVenta, Venta venta, List<Producto> productos, double precioVenta) {
         this.idDetalleVenta = idDetalleVenta;
-        this.cantidad = cantidad;
         this.venta = venta;
         this.productos = productos;
         this.precioVenta = precioVenta;
@@ -37,14 +41,6 @@ public class DetalleVenta {
 
     public void setIdDetalleVenta(int idDetalleVenta) {
         this.idDetalleVenta = idDetalleVenta;
-    }
-
-    public int getCantindad() {
-        return cantidad;
-    }
-
-    public void setCantindad(int cantindad) {
-        this.cantidad = cantindad;
     }
 
     public Venta getVenta() {
@@ -73,7 +69,7 @@ public class DetalleVenta {
 
     @Override
     public String toString() {
-        return "DetalleVenta{" + "idDetalleVenta=" + idDetalleVenta + ", cantidad=" + cantidad + ", venta=" + venta + ", productos=" + productos + ", precioVenta=" + precioVenta + '}';
+        return "idDetalleVenta=" + idDetalleVenta + ", venta=" + venta;
     }
     
     public void agregarProducto(Producto producto) {

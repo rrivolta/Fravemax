@@ -20,7 +20,8 @@ public class ClienteData {
     }
 
     public void registrarCliente(Cliente cliente) {
-        String sql = "INSERT INTO cliente (idCliente, apellido,nombre,domicilio,telefono,estado) VALUES (?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO cliente (idCliente, apellido, nombre, domicilio, telefono, estado) "
+                + "VALUES (?, ?, ?, ?, ?,?)";
         
         try {
             PreparedStatement ps = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -43,8 +44,10 @@ public class ClienteData {
         }
     }
 
+    //REVISAR SI SIRVE MODIFICAR EL ESTADO
     public void modificarCliente(Cliente cliente) {
-        String sql = "UPDATE cliente SET apellido = ?, nombre = ?, domicilio = ?, telefono= ?, estado = ? where idCliente = ?";
+        String sql = "UPDATE cliente SET apellido = ?, nombre = ?, domicilio = ?, telefono= ?, estado = ? "
+                + "where idCliente = ?";
         
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -107,17 +110,18 @@ public class ClienteData {
     
     public Cliente buscarCliente(int idCliente) {
         String sql = "SELECT apellido, nombre, domicilio, telefono, estado FROM cliente "
-                + "WHERE estado=1";
+                + "WHERE idcliente=?";
         Cliente cli = new Cliente();
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
             ps.setInt(1, idCliente);
             ResultSet result = ps.executeQuery();
             if (result.next()) {
-                cli.setApellido("apellido");
-                cli.setNombre("nombre");
-                cli.setDomicilio("domicilio");
-                cli.setTelefono("telefono");
+                cli.setApellido(result.getString("apellido"));
+                cli.setNombre(result.getString("nombre"));
+                cli.setDomicilio(result.getString("domicilio"));
+                cli.setTelefono(result.getString("telefono"));
+                cli.setEstado(result.getBoolean("estado"));
                 cli.setIdCliente(idCliente);
             }
             ps.close();

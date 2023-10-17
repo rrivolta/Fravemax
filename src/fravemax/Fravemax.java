@@ -2,6 +2,7 @@ package fravemax;
 
 import accesoADatos.ClienteData;
 import accesoADatos.Conexion;
+import accesoADatos.DetalleVtaData;
 import accesoADatos.ProductoData;
 import accesoADatos.VentaData;
 import entidades.Cliente;
@@ -9,12 +10,15 @@ import entidades.DetalleVenta;
 import entidades.Producto;
 import entidades.Venta;
 import java.sql.Connection;
+import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import accesoADatos.DetalleVtaData;
-import java.time.LocalDate;
 import vistas.AdministrarClientes;
+import vistas.DetalleDeVentas;
+import vistas.RealizarVentas;
 
 public class Fravemax {
 
@@ -87,7 +91,18 @@ public class Fravemax {
             System.out.println(pro);
         }*/
         
+        //JFrame frame = new JFrame("Aplicación de Ventas");
+        JFrame frame = new JFrame("Realizar de Ventas");
+        JDesktopPane desktopPane = new JDesktopPane();
         
+        DetalleDeVentas detalleDeVentas = new DetalleDeVentas();
+        RealizarVentas rv = new RealizarVentas();
+        desktopPane.add(rv);
         
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add(desktopPane);
+        frame.setSize(800, 600); // Establece el tamaño del JFrame según tus necesidades.
+        frame.setVisible(true);
+
     }
 }
