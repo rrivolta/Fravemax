@@ -1,8 +1,21 @@
 
 package vistas;
 
+import accesoADatos.ClienteData;
+import accesoADatos.DetalleVtaData;
+import accesoADatos.ProductoData;
+import accesoADatos.VentaData;
 import entidades.Cliente;
+import entidades.DetalleVenta;
 import entidades.Producto;
+import entidades.Venta;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class RealizarVentas extends javax.swing.JInternalFrame {
@@ -17,8 +30,12 @@ public class RealizarVentas extends javax.swing.JInternalFrame {
 
 	
 	public RealizarVentas() {
-		initComponents();
-                
+            initComponents();
+            armarCabeceraTabla();
+            cargarComboClientes();
+            cargarComboProductos();
+            limpiarTabla(jTable, modeloTabla);
+            desactivarElementos();
 	}
 
 	

@@ -214,6 +214,7 @@ public class VentasXFechaOXCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jCheckFechaActionPerformed
 
     private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
+        limpiarTabla(jTFecha, modeloTablaFecha);
         if(jDateChooser1.getDate() != null){
             LocalDate fechaDeVentas = jDateChooser1.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
@@ -232,6 +233,7 @@ public class VentasXFechaOXCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jCheckClienteActionPerformed
 
     private void jCBClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBClienteActionPerformed
+        limpiarTabla(jTClliente, modeloTablaCliente);
         Cliente cliente = (Cliente)jCBCliente.getSelectedItem();
         
         VentaData vd = new VentaData();
