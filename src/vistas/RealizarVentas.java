@@ -266,8 +266,8 @@ public class RealizarVentas extends javax.swing.JInternalFrame {
     private void jBQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBQuitarActionPerformed
         int fila = jTable.getSelectedRow();
         ProductoData pd = new ProductoData();
-        Integer códigoProd = (Integer)modeloTabla.getValueAt(fila, 0);
         
+        Integer códigoProd = (Integer)modeloTabla.getValueAt(fila, 0);    
         Producto prod = pd.buscarProducto(códigoProd);
         this.productos.remove(prod);
 
