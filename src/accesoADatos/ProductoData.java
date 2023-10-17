@@ -39,7 +39,8 @@ public class ProductoData {
     }
 
     public void modificarProducto(Producto producto) {
-        String sql = "UPDATE producto SET nombreProducto = ?, descripcion = ?, precioActual = ?, stock = ?, estado = ? where idProducto = ?";
+        String sql = "UPDATE producto SET nombreProducto = ?, descripcion = ?, precioActual = ?, stock = ?, estado = ? "
+                + "where idProducto = ?";
         
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -72,7 +73,7 @@ public class ProductoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto");
         }
     }
 

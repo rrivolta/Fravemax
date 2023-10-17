@@ -248,7 +248,7 @@ public class RealizarVentas extends javax.swing.JInternalFrame {
 
     private void jBRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRegistarActionPerformed
         Cliente cliente = (Cliente) jCBox1.getSelectedItem();
-        JOptionPane.showMessageDialog(this, "Seleccione un cliente");
+        //JOptionPane.showMessageDialog(this, "Seleccione un cliente");
         LocalDate nuevaFecha=jDFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         
         Venta venta = new Venta(cliente, nuevaFecha, true);
@@ -265,6 +265,11 @@ public class RealizarVentas extends javax.swing.JInternalFrame {
 
     private void jBQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBQuitarActionPerformed
         int fila = jTable.getSelectedRow();
+        ProductoData pd = new ProductoData();
+        Integer códigoProd = (Integer)modeloTabla.getValueAt(fila, 0);
+        
+        Producto prod = pd.buscarProducto(códigoProd);
+        this.productos.remove(prod);
 
         int columnas = modeloTabla.getColumnCount();
         for(int columna = 0; columna < columnas; columna++) {
@@ -273,6 +278,7 @@ public class RealizarVentas extends javax.swing.JInternalFrame {
 
         //Notifica a la tabla que los datos han cambiado para que se refresque
         modeloTabla.fireTableDataChanged(); 
+        this.productos.remove(ui);
     }//GEN-LAST:event_jBQuitarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed

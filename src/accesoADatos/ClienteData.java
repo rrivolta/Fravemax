@@ -44,6 +44,7 @@ public class ClienteData {
         }
     }
 
+    //REVISAR SI SIRVE MODIFICAR EL ESTADO
     public void modificarCliente(Cliente cliente) {
         String sql = "UPDATE cliente SET apellido = ?, nombre = ?, domicilio = ?, telefono= ?, estado = ? "
                 + "where idCliente = ?";

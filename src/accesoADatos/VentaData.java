@@ -94,7 +94,7 @@ public class VentaData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla producto");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla venta");
         }
         return venta;
     }

@@ -54,8 +54,7 @@ public class DetalleVtaData {
     }
     
     public DetalleVenta buscarDetalle(int idVenta) {
-        String sql = "SELECT idProducto, cantidad, precioVenta FROM detalleventa WHERE idVenta=?"
-                + "WHERE estado=1";
+        String sql = "SELECT idProducto, cantidad, precioVenta FROM detalleventa WHERE idVenta=?";
         DetalleVenta dv = null;
         List<Producto> productos = new ArrayList<>();
         try {
@@ -72,7 +71,7 @@ public class DetalleVtaData {
             dv = new DetalleVenta(venta, productos);
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Cliente");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Detalle Venta");
         }
         return dv;
     }
