@@ -1,24 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package vistas;
 
-import accesoADatos.ClienteData;
-import accesoADatos.DetalleVtaData;
-import accesoADatos.ProductoData;
-import accesoADatos.VentaData;
 import entidades.Cliente;
 import entidades.Producto;
-import entidades.Venta;
-import entidades.DetalleVenta;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+
 
 public class RealizarVentas extends javax.swing.JInternalFrame {
     
@@ -30,15 +15,13 @@ public class RealizarVentas extends javax.swing.JInternalFrame {
         }
     };
 
-    public RealizarVentas() {
-        initComponents();
-        armarCabeceraTabla();
-        cargarComboClientes();
-        cargarComboProductos();
-        limpiarTabla(jTable, modeloTabla);
-        desactivarElementos();
-    }
+	
+	public RealizarVentas() {
+		initComponents();
+                
+	}
 
+	
 	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
