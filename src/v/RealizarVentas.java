@@ -1,5 +1,5 @@
 
-package vistas;
+package v;
 
 import accesoADatos.ClienteData;
 import accesoADatos.DetalleVtaData;

@@ -1,5 +1,5 @@
 
-package vistas;
+package v;
 
 import accesoADatos.ProductoData;
 import accesoADatos.VentaData;
