@@ -153,7 +153,7 @@ public class ProductoData {
         return prod;
     }
     
-    public List<Producto> buscarProductoXFecha (LocalDate fecha, int idVenta){
+    public List<Producto> buscarProductoXVenta (LocalDate fecha, int idVenta){
         String sql = "SELECT p.idProducto, nombreProducto, descripcion, precioActual "
                 + "FROM producto p JOIN detalleVenta dv ON (p.idProducto = dv.idProducto) "
                 + "JOIN venta v ON (v.idVenta = dv.idVenta) "
@@ -181,6 +181,7 @@ public class ProductoData {
         }
         return productos;
     }
+    
 }
     
 

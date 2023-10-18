@@ -52,7 +52,7 @@ public class VentasXFechaOXCliente extends javax.swing.JInternalFrame {
         jTFecha = new javax.swing.JTable();
         jCBCliente = new javax.swing.JComboBox<Cliente>();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jCheckFecha = new javax.swing.JCheckBox();
@@ -95,7 +95,12 @@ public class VentasXFechaOXCliente extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Seleccione un cliente");
 
-        jButton1.setText("Salir");
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Seleccione una fecha");
 
@@ -170,7 +175,7 @@ public class VentasXFechaOXCliente extends javax.swing.JInternalFrame {
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(178, 178, 178)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -201,7 +206,7 @@ public class VentasXFechaOXCliente extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(Salir)
                 .addGap(23, 23, 23))
         );
 
@@ -240,13 +245,17 @@ public class VentasXFechaOXCliente extends javax.swing.JInternalFrame {
         List<Venta> ventasDelCliente = vd.listarVentaXCliente(cliente);
         
         for(Venta venta: ventasDelCliente){
-            modeloTablaFecha.addRow(new Object[]{venta.getIdVenta(), venta.getFechaVenta()});
+            modeloTablaCliente.addRow(new Object[]{venta.getIdVenta(), venta.getFechaVenta()});
         }
     }//GEN-LAST:event_jCBClienteActionPerformed
 
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_SalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Salir;
     private javax.swing.JComboBox<Cliente> jCBCliente;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckCliente;
