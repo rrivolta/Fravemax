@@ -148,6 +148,7 @@ this.dispose();
             jCVenta.setEnabled(true);
             cargarCombo(fechaDeVenta);
         }
+		}  
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton jBSalir;

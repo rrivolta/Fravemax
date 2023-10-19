@@ -16,9 +16,9 @@ import java.util.List;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import v.AdministrarClientes;
-import v.DetalleDeVentas;
-import v.RealizarVentas;
+import vista.AdministrarClientes;
+import vista.DetalleDeVentas;
+import vista.RealizarVentas;
 
 public class Fravemax {
 
