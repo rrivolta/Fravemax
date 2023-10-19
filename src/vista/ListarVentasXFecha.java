@@ -269,4 +269,5 @@ private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {
     private void desactivarElementos(){
         jCBCliente.setEnabled(false);
         jDateChooser1.setEnabled(false);
-    }}
+    }
+}

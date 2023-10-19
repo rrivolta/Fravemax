@@ -7,8 +7,8 @@ import menu.MenuEvent;
 import vista.AdministrarClientes;
 import vista.DetalleDeVentas;
 import vista.ListarVentasXFecha;
-import vista.ModificarVentas;
-import vista.MostrarClientes;
+import vista.ProductosVentaXFecha;
+import vista.ClientesXProducto;
 import vista.RealizarVentas;
 import vista.RegistrarProductos;
 
@@ -29,7 +29,7 @@ showForm(new RealizarVentas());
 } else if (subIndex == 2) {
 showForm(new DetalleDeVentas()); 
 } else if (subIndex == 3) {
-showForm(new ModificarVentas());
+showForm(new ProductosVentaXFecha());
 }
 }
 if (index == 3) {
@@ -40,7 +40,7 @@ if (index == 4) {
 if (subIndex == 1) {
 showForm(new ListarVentasXFecha ());
 }else if (subIndex == 2) {
-showForm(new MostrarClientes ());
+showForm(new ClientesXProducto ());
 	}
 }
 
