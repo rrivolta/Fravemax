@@ -235,7 +235,29 @@ public class RegistrarProductos extends javax.swing.JPanel {
       }
       limpiar();
    }//GEN-LAST:event_jBEliminarActionPerformed
+private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {                                        
+          activarCampos();
+        
+        try {
+            int idProducto = Integer.parseInt(jTIdProd.getText());
+            ProductoData pd = new ProductoData();
+            Producto producto = pd.buscarProducto(idProducto);
+           jTNombreProd .setText(producto.getNombreProducto());
+            jTDescripcion.setText(producto.getDescripcion());
+            jTPrecioActual.setText(""+producto.getPrecioActual());
+            jTStock.setText(""+producto.getStock());
 
+        }catch(NullPointerException ex){
+           
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido");
+            
+       
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Error en el campo IDCliente. Ingrese solo numeros");
+        }
+        limpiar();
+        
+    }                                       
    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
       this.dispose();
    }//GEN-LAST:event_jBSalirActionPerformed
@@ -269,19 +291,18 @@ public class RegistrarProductos extends javax.swing.JPanel {
         jTIdProd.setText("");
 
     }
-
-    private void activarCampos() {
+ private void activarCampos() {
         jTNombreProd.setEnabled(true);
         jTDescripcion.setEnabled(true);
         jTPrecioActual.setEnabled(true);
-        jTIdProd.setEditable(true);
+        jTStock.setEnabled(true);
     }
 
     private void desactivarCampos() {
         jTNombreProd.setEnabled(false);
         jTDescripcion.setEnabled(false);
+        jTPrecioActual.setEnabled(false);
         jTStock.setEnabled(false);
-        jTIdProd.setEditable(false);
 
     }
 

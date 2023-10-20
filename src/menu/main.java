@@ -28,9 +28,7 @@ if (subIndex == 1)	{
 showForm(new RealizarVentas()); 
 } else if (subIndex == 2) {
 showForm(new DetalleDeVentas()); 
-} else if (subIndex == 3) {
-showForm(new ProductosVentaXFecha());
-}
+} 
 }
 if (index == 3) {
 if (subIndex == 1) {
@@ -41,7 +39,9 @@ if (subIndex == 1) {
 showForm(new ListarVentasXFecha ());
 }else if (subIndex == 2) {
 showForm(new ClientesXProducto ());
-	}
+}else if (subIndex == 3) {
+showForm(new ProductosVentaXFecha());
+}
 }
 
 }

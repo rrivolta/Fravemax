@@ -9,32 +9,32 @@ import java.time.ZoneId;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 public class ListarVentasXFecha extends javax.swing.JPanel {
-	
-   private DefaultTableModel modeloTablaFecha = new DefaultTableModel() {
-            public boolean isCellEditable(int r, int c) {
-                return false;
-            }
-        };
-	    private DefaultTableModel modeloTablaCliente = new DefaultTableModel() {
-            public boolean isCellEditable(int r, int c) {
-                return false;
-            }
-        };
 
-	public ListarVentasXFecha() {
-		
-	 initComponents();
-            cargarCombo();
-            armarCabeceraTablaCliente();
-            armarCabeceraTablaFecha();
-            desactivarElementos();
-            limpiarTabla(jTFecha, modeloTablaFecha);
-            limpiarTabla(jTClliente, modeloTablaCliente);	
-	}
+    private DefaultTableModel modeloTablaFecha = new DefaultTableModel() {
+        public boolean isCellEditable(int r, int c) {
+            return false;
+        }
+    };
+    private DefaultTableModel modeloTablaCliente = new DefaultTableModel() {
+        public boolean isCellEditable(int r, int c) {
+            return false;
+        }
+    };
 
-	
-	@SuppressWarnings("unchecked")
+    public ListarVentasXFecha() {
+
+        initComponents();
+        cargarCombo();
+        armarCabeceraTablaCliente();
+        armarCabeceraTablaFecha();
+        desactivarElementos();
+        limpiarTabla(jTFecha, modeloTablaFecha);
+        limpiarTabla(jTClliente, modeloTablaCliente);
+    }
+
+    @SuppressWarnings("unchecked")
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
@@ -190,19 +190,19 @@ public class ListarVentasXFecha extends javax.swing.JPanel {
    }// </editor-fold>//GEN-END:initComponents
 
    private void jCBClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBClienteActionPerformed
-      limpiarTabla(jTClliente, modeloTablaCliente);
-      Cliente cliente = (Cliente)jCBCliente.getSelectedItem();
+       limpiarTabla(jTClliente, modeloTablaCliente);
+       Cliente cliente = (Cliente) jCBCliente.getSelectedItem();
 
-      VentaData vd = new VentaData();
-      List<Venta> ventasDelCliente = vd.listarVentaXCliente(cliente);
+       VentaData vd = new VentaData();
+       List<Venta> ventasDelCliente = vd.listarVentaXCliente(cliente);
 
-      for(Venta venta: ventasDelCliente){
-         modeloTablaFecha.addRow(new Object[]{venta.getIdVenta(), venta.getFechaVenta()});
-      }
+       for (Venta venta : ventasDelCliente) {
+           modeloTablaFecha.addRow(new Object[]{venta.getIdVenta(), venta.getFechaVenta()});
+       }
    }//GEN-LAST:event_jCBClienteActionPerformed
-private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {                                             
+    private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {
         limpiarTabla(jTFecha, modeloTablaFecha);
-        if(jDateChooser1.getDate() != null){
+        if (jDateChooser1.getDate() != null) {
             LocalDate fechaDeVentas = jDateChooser1.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
             VentaData vd = new VentaData();
@@ -215,14 +215,16 @@ private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {
         }
     }
    private void jCheckFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckFechaActionPerformed
-      jDateChooser1.setEnabled(true);
+       jDateChooser1.setEnabled(true);
 
    }//GEN-LAST:event_jCheckFechaActionPerformed
 
    private void jCheckClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckClienteActionPerformed
-      jCBCliente.setEnabled(true);
+       jCBCliente.setEnabled(true);
    }//GEN-LAST:event_jCheckClienteActionPerformed
-
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        this.dispose();
+    }//G
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton jButton1;
@@ -244,30 +246,34 @@ private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {
         modeloTablaCliente.addColumn("Fecha de venta");
         jTClliente.setModel(modeloTablaCliente);
     }
-    
+
     private void armarCabeceraTablaFecha() {
         modeloTablaFecha.addColumn("Código de venta");
         modeloTablaFecha.addColumn("Id del cliente");
         modeloTablaFecha.addColumn("Apellido");
         jTFecha.setModel(modeloTablaFecha);
     }
-    
+
     private void cargarCombo() {
         ClienteData cd = new ClienteData();
         for (Cliente cli : cd.listarClientes()) {
             jCBCliente.addItem(cli);
         }
     }
-    
+
     private void limpiarTabla(JTable jTabla, DefaultTableModel modeloTabla) {
         int f = jTabla.getRowCount() - 1;
         for (; f >= 0; f--) {
             modeloTabla.removeRow(f);
         }
     }
-    
-    private void desactivarElementos(){
+
+    private void desactivarElementos() {
         jCBCliente.setEnabled(false);
         jDateChooser1.setEnabled(false);
+    }
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
