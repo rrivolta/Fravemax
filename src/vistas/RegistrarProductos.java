@@ -89,20 +89,24 @@ public class RegistrarProductos extends javax.swing.JInternalFrame {
         jLIdProducto.setText("ID Producto");
 
         jBuscar.setText("Buscar");
+        jBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jTNombreProd, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,7 +235,7 @@ public class RegistrarProductos extends javax.swing.JInternalFrame {
 
         activarCampos();
         jBGuardar.setEnabled(true);
-        jTIdProd.setEditable(false);
+        jTIdProd.setEnabled(false);
 
 
     }//GEN-LAST:event_jBAgregarActionPerformed
@@ -273,6 +277,30 @@ public class RegistrarProductos extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
+    private void jBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarActionPerformed
+          activarCampos();
+        
+        try {
+            int idProducto = Integer.parseInt(jTIdProd.getText());
+            ProductoData pd = new ProductoData();
+            Producto producto = pd.buscarProducto(idProducto);
+           jTNombreProd .setText(producto.getNombreProducto());
+            jTDescripcion.setText(producto.getDescripcion());
+            jTPrecioActual.setText(""+producto.getPrecioActual());
+            jTStock.setText(""+producto.getStock());
+
+        }catch(NullPointerException ex){
+           
+            JOptionPane.showMessageDialog(this, "Ingrese un ID válido");
+            
+       
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Error en el campo IDCliente. Ingrese solo numeros");
+        }
+        limpiar();
+        
+    }//GEN-LAST:event_jBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAgregar;
@@ -309,14 +337,14 @@ public class RegistrarProductos extends javax.swing.JInternalFrame {
         jTNombreProd.setEnabled(true);
         jTDescripcion.setEnabled(true);
         jTPrecioActual.setEnabled(true);
-        jTIdProd.setEditable(true);
+        jTStock.setEnabled(true);
     }
 
     private void desactivarCampos() {
         jTNombreProd.setEnabled(false);
         jTDescripcion.setEnabled(false);
+        jTPrecioActual.setEnabled(false);
         jTStock.setEnabled(false);
-        jTIdProd.setEditable(false);
 
     }
 }
