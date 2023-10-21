@@ -39,8 +39,8 @@ public class ProductoData {
     }
 
     public void modificarProducto(Producto producto) {
-        String sql = "UPDATE producto SET nombreProducto = ?, descripcion = ?, precioActual = ?, stock = ?, estado = ? "
-                + "where idProducto = ?";
+        String sql = "UPDATE producto SET nombreProducto = ?, descripcion = ?, precioActual = ?, stock = ?"
+                + " WHERE idProducto = ?";
         
         try {
             PreparedStatement ps = conexion.prepareStatement(sql);
@@ -48,14 +48,30 @@ public class ProductoData {
             ps.setString(2, producto.getDescripcion());
             ps.setDouble(3, producto.getPrecioActual());
             ps.setInt(4, producto.getStock());
-            ps.setBoolean(5, producto.isEstado());
-            ps.setInt(6, producto.getIdProducto());
+            ps.setInt(5, producto.getIdProducto());
             int exito = ps.executeUpdate();
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Producto modificado");
             }
             ps.close();
 
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al modificar el producto en la base de datos.");
+        }
+    }
+    
+    public void modificarStock(Producto producto) {
+        String sql = "UPDATE producto SET stock = ? WHERE idProducto = ?";
+        
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setInt(1, producto.getStock());
+            ps.setInt(2, producto.getIdProducto());
+            int exito = ps.executeUpdate();
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, "Stock modificado");
+            }
+            ps.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al modificar el producto en la base de datos.");
         }

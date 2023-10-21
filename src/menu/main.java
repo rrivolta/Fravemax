@@ -1,4 +1,3 @@
-
 package menu;
 
 import menu.DefaultForm;
@@ -9,52 +8,58 @@ import vista.DetalleDeVentas;
 import vista.ListarVentasXFecha;
 import vista.ProductosVentaXFecha;
 import vista.ClientesXProducto;
+import vista.ModificarVentas;
 import vista.RealizarVentas;
 import vista.RegistrarProductos;
 
 public class main extends javax.swing.JFrame {
 
-	public main() {
-		initComponents();
-		menu1.setEvent(new MenuEvent() {
-	@Override
-public void selected(int index, int subIndex) {
-showForm(new DefaultForm("Form : " + index + " " + subIndex));
-if (index == 1) {
-showForm(new RegistrarProductos());
-} 
-if (index == 2) {
-if (subIndex == 1)	{
-showForm(new RealizarVentas()); 
-} else if (subIndex == 2) {
-showForm(new DetalleDeVentas()); 
-} 
-}
-if (index == 3) {
-if (subIndex == 1) {
-showForm(new AdministrarClientes()); }
-}
-if (index == 4) {
-if (subIndex == 1) {
-showForm(new ListarVentasXFecha ());
-}else if (subIndex == 2) {
-showForm(new ClientesXProducto ());
-}else if (subIndex == 3) {
-showForm(new ProductosVentaXFecha());
-}
-}
+    public main() {
+        initComponents();
+        menu1.setEvent(new MenuEvent() {
+            @Override
+            public void selected(int index, int subIndex) {
+                showForm(new DefaultForm("Form : " + index + " " + subIndex));
+                if (index == 1) {
+                    showForm(new RegistrarProductos());
+                }
+                if (index == 2) {
+                    if (subIndex == 1) {
+                        showForm(new RealizarVentas());
+                    } else if (subIndex == 2) {
+                        showForm(new DetalleDeVentas());
+                    } else if(subIndex == 3) {
+                        showForm(new ModificarVentas());
+                    }
+                }
+                if (index == 3) {
+                    if (subIndex == 1) {
+                        showForm(new AdministrarClientes());
+                    }
+                }
+                if (index == 4) {
+                    if (subIndex == 1) {
+                        showForm(new ListarVentasXFecha());
+                    } else if (subIndex == 2) {
+                        showForm(new ClientesXProducto());
+                    } else if (subIndex == 3) {
+                        showForm(new ProductosVentaXFecha());
+                    }
+                }
 
-}
-		});
-	}
+            }
+        });
+    }
 
     private void showForm(Component com) {
-				jPanel1.removeAll();
-				jPanel1.add(com);
-				jPanel1.repaint();
-				jPanel1.revalidate();
-			}
-	@SuppressWarnings("unchecked")
+        jPanel1.removeAll();
+        jPanel1.add(com);
+        jPanel1.repaint();
+        jPanel1.revalidate();
+    }
+  
+    
+    @SuppressWarnings("unchecked")
    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
    private void initComponents() {
 
@@ -109,40 +114,40 @@ showForm(new ProductosVentaXFecha());
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String args[]) {
-		/* Set the Nimbus look and feel */
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
 		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
 		/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-		 */
-		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
 		//</editor-fold>
 
-		/* Create and display the form */
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				new main().setVisible(true);
-			}
-		});
-	}
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new main().setVisible(true);
+            }
+        });
+    }
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private menu.Cabezaa cabezaa1;

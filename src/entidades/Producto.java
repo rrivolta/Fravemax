@@ -1,5 +1,7 @@
 package entidades;
 
+import java.util.Objects;
+
 
 public class Producto {
 
@@ -79,7 +81,20 @@ public class Producto {
     
     @Override
     public String toString() {
-        return "Producto{" + "idProdructo=" + idProducto + ", stock=" + stock + ", nombreProducto=" + nombreProducto + ", descripcion=" + descripcion + ", precioActual=" + precioActual + ", estado=" + estado + '}';
+        return "idProdructo=" + idProducto + ", stock=" + stock + ", nombreProducto=" + nombreProducto + ", descripcion=" + descripcion + ", precioActual=" + precioActual + ", estado=" + estado;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Producto producto = (Producto) obj;
+        return Objects.equals(idProducto, producto.idProducto);
+    }
+
      
 }
