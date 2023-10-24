@@ -4,7 +4,9 @@ import accesoADatos.ClienteData;
 import accesoADatos.ProductoData;
 import entidades.Cliente;
 import entidades.Producto;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -125,7 +127,7 @@ public class ClientesXProducto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-      this.dispose();
+      this.setVisible(false);
    }//GEN-LAST:event_SalirActionPerformed
 
    private void jCProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCProductoActionPerformed
@@ -138,8 +140,8 @@ public class ClientesXProducto extends javax.swing.JPanel {
 
       ClienteData cd = new ClienteData();
       List<Cliente> listaClientes = cd.clientesXProducto(prod.getIdProducto());
-
-      for(Cliente cli: listaClientes){
+      Set<Cliente> lista2 = new HashSet<Cliente>(listaClientes);
+      for(Cliente cli: lista2){
          modeloTabla.addRow(new Object[]{cli.getIdCliente(), cli.getApellido(), cli.getNombre(),
             cli.getDomicilio(), cli.getTelefono(), cli.isEstado()});
       }

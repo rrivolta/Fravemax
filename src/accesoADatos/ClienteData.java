@@ -132,10 +132,10 @@ public class ClienteData {
     }
     
     public List<Cliente> clientesXProducto(int idProducto){
-        String sql = "SELECT c.idCliente, apellido, nombre, domicilio, telefono FROM cliente c "
-                + "JOIN venta v ON (c.idCliente = v.idVenta) JOIN detalleventa dv "
-                + "ON (dv.idVenta = v.idVenta) JOIN producto p ON (p.idProducto = dv.idProducto) "
-                + "WHERE p.idProducto = ?";
+        String sql = "SELECT c.idCliente, apellido, nombre, domicilio, telefono, c.estado FROM cliente c " +
+                     "JOIN venta v ON (c.idCliente = v.idCliente) JOIN detalleventa dv " +
+                    "ON (dv.idVenta = v.idVenta) JOIN producto p ON (p.idProducto = dv.idProducto) " +
+                    "WHERE p.idProducto = ? AND (c.estado = 1 OR c.estado = 0);";
         
         List<Cliente> clientes = new ArrayList<>();
         try {
