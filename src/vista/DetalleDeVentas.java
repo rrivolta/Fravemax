@@ -12,6 +12,8 @@ import javax.swing.table.DefaultTableModel;;
 
 public class DetalleDeVentas extends javax.swing.JPanel {
     
+        //refresh
+    
         private boolean comboCargado=false;
 
 	private DefaultTableModel modeloTabla = new DefaultTableModel() {
