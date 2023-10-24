@@ -35,7 +35,7 @@ public class Menu  extends JComponent {
         {"Productos", "Registrar Productos"},
         {"Ventas", "Realizar Ventas", "Detalle de Ventas", "Modificar Ventas"},
         {"Administrar", "Clientes"},
-        {"Buscar", "Lista por Clientes", "Mostrar Clientes por Productos", "Buscar Productos por Fecha"},
+        {"Buscar", "Listar Ventas", "Mostrar Clientes por Productos", "Buscar Productos por Fecha"},
 		
     };
 

@@ -132,7 +132,7 @@ public class ClienteData {
     }
     
     public List<Cliente> clientesXProducto(int idProducto){
-        String sql = "SELECT c.idCliente, apellido, nombre, domicilio, telefono, c.estado FROM cliente c "
+        String sql = "SELECT c.idCliente, apellido, nombre, domicilio, telefono FROM cliente c "
                 + "JOIN venta v ON (c.idCliente = v.idVenta) JOIN detalleventa dv "
                 + "ON (dv.idVenta = v.idVenta) JOIN producto p ON (p.idProducto = dv.idProducto) "
                 + "WHERE p.idProducto = ?";
@@ -150,7 +150,7 @@ public class ClienteData {
                 cli.setNombre(result.getString("nombre"));
                 cli.setDomicilio(result.getString("domicilio"));
                 cli.setTelefono(result.getString("telefono"));
-                cli.setEstado(result.getBoolean("estado"));
+                //cli.setEstado(result.getBoolean("estado"));
                 clientes.add(cli);
             }
             ps.close();
