@@ -62,7 +62,7 @@ public class Venta {
 
     @Override
     public String toString() {
-        return "Venta{" + "idVenta=" + idVenta + ", cliente=" + cliente + ", fechaVenta=" + fechaVenta + ", estado=" + estado + '}';
+        return idVenta + " " + cliente + " " + fechaVenta + " " + estado;
     }
     
 }

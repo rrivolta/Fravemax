@@ -69,7 +69,7 @@ public class DetalleVenta {
 
     @Override
     public String toString() {
-        return "idDetalleVenta=" + idDetalleVenta + ", venta=" + venta;
+        return idDetalleVenta + " " + venta;
     }
     
     public void agregarProducto(Producto producto) {
