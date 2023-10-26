@@ -319,6 +319,8 @@ public class AdministrarClientes extends javax.swing.JPanel {
       jBModificar.setEnabled(false);
       activarCampos();
       jBGuardar.setEnabled(true);
+      jRActivo.setEnabled(false);
+      jRInactivo.setEnabled(false);
 
    }//GEN-LAST:event_jBAgregarActionPerformed
 

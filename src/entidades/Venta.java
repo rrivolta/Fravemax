@@ -26,6 +26,12 @@ public class Venta {
         this.estado = estado;
     }
 
+    public Venta(int idVenta, Cliente cliente, boolean estado) {
+        this.idVenta = idVenta;
+        this.cliente = cliente;
+        this.estado = estado;
+    }
+    
     public int getIdVenta() {
         return idVenta;
     }
@@ -62,7 +68,7 @@ public class Venta {
 
     @Override
     public String toString() {
-        return idVenta + " " + cliente + " " + fechaVenta + " " + estado;
+        return "Código Venta: "+idVenta + ", " + cliente;
     }
     
 }

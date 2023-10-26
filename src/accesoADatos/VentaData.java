@@ -151,7 +151,10 @@ public class VentaData {
             ResultSet result = ps.executeQuery();
             while (result.next()) {
                 Venta venta = new Venta();
+                ClienteData cd = new ClienteData();
+                Cliente cliente = cd.buscarCliente(result.getInt("idCliente"));
                 venta.setIdVenta(result.getInt("idVenta"));
+                venta.setCliente(cliente);
                 venta.setFechaVenta(result.getDate("fechaVenta").toLocalDate());
                 venta.setEstado(result.getBoolean("estado"));
                 ventas.add(venta);
