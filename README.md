@@ -11,6 +11,7 @@ INTEGRANTES DEL PROYECTO:
   Leonel Alejandro Ranieri
 
 ===========================================================
+
 FORMAS DE EJECUTAR LA APLICACIÓN:
 
 - app diseñada desde NetBeans, lenguaje utilizado : Java -
@@ -21,6 +22,7 @@ FORMAS DE EJECUTAR LA APLICACIÓN:
 3ro - ejecutar desde : Source Packages/menu/main.java
 
 ===========================================================
+
 Modo de uso de la app : 
 - Aclaraciones importantes para una experiencia de uso óptima -
  
