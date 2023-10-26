@@ -64,7 +64,7 @@ public class RegistrarProductos extends javax.swing.JPanel {
         jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar_24.png"))); // NOI18N
         jBAgregar.setText("Agregar");
         jBAgregar.setContentAreaFilled(false);
-        jBAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBAgregar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar_24.png"))); // NOI18N
         jBAgregar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar_32.png"))); // NOI18N
@@ -79,7 +79,7 @@ public class RegistrarProductos extends javax.swing.JPanel {
         jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar_24.png"))); // NOI18N
         jBGuardar.setText("Guardar");
         jBGuardar.setContentAreaFilled(false);
-        jBGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBGuardar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar_24.png"))); // NOI18N
         jBGuardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar_32.png"))); // NOI18N
@@ -94,7 +94,7 @@ public class RegistrarProductos extends javax.swing.JPanel {
         jBModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar_24.png"))); // NOI18N
         jBModificar.setText("Modificar");
         jBModificar.setContentAreaFilled(false);
-        jBModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBModificar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar_24.png"))); // NOI18N
         jBModificar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar_32.png"))); // NOI18N
@@ -109,7 +109,7 @@ public class RegistrarProductos extends javax.swing.JPanel {
         jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar_24.png"))); // NOI18N
         jBEliminar.setText("Eliminar");
         jBEliminar.setContentAreaFilled(false);
-        jBEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBEliminar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar_24.png"))); // NOI18N
         jBEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar_32.png"))); // NOI18N
@@ -124,7 +124,7 @@ public class RegistrarProductos extends javax.swing.JPanel {
         jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir_24.png"))); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.setContentAreaFilled(false);
-        jBSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir_24.png"))); // NOI18N
         jBSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir_32.png"))); // NOI18N
@@ -139,7 +139,7 @@ public class RegistrarProductos extends javax.swing.JPanel {
         jBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_24.png"))); // NOI18N
         jBuscar.setText("Buscar");
         jBuscar.setContentAreaFilled(false);
-        jBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBuscar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_24.png"))); // NOI18N
         jBuscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_32.png"))); // NOI18N
@@ -228,11 +228,11 @@ public class RegistrarProductos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBAgregar)
-                            .addComponent(jBGuardar)
-                            .addComponent(jBModificar)
-                            .addComponent(jBEliminar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBGuardar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBModificar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBEliminar)
+                            .addComponent(jBAgregar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jBSalir)))
@@ -241,11 +241,11 @@ public class RegistrarProductos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
    private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
-
+      limpiar();
+      jBEliminar.setEnabled(false);
+      jBModificar.setEnabled(false);
       activarCampos();
       jBGuardar.setEnabled(true);
-      jTIdProd.setEditable(false);
-
    }//GEN-LAST:event_jBAgregarActionPerformed
 
    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
@@ -312,6 +312,7 @@ public class RegistrarProductos extends javax.swing.JPanel {
         activarCampos();  
         jBEliminar.setEnabled(true);
         jBModificar.setEnabled(true);
+        jBGuardar.setEnabled(false);
         try {
             int idProducto = Integer.parseInt(jTIdProd.getText());
             ProductoData pd = new ProductoData();
