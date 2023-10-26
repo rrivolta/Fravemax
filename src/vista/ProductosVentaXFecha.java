@@ -188,8 +188,8 @@ public class ProductosVentaXFecha extends javax.swing.JPanel {
 
     private void armarCabecera() {
         modeloTabla.addColumn("Código");
-        modeloTabla.addColumn("Nombre");
-        modeloTabla.addColumn("Descripción");
+        modeloTabla.addColumn("Producto");
+        modeloTabla.addColumn("Descripción del producto");
         jTable.setModel(modeloTabla);
     }
     
