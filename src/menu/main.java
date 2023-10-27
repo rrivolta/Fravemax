@@ -19,7 +19,6 @@ public class main extends javax.swing.JFrame {
         menu1.setEvent(new MenuEvent() {
             @Override
             public void selected(int index, int subIndex) {
-                showForm(new DefaultForm("Form : " + index + " " + subIndex));
                 if (index == 1) {
                     showForm(new RegistrarProductos());
                 }
