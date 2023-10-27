@@ -17,6 +17,7 @@ public class main extends javax.swing.JFrame {
     public main() {
         initComponents();
         menu1.setEvent(new MenuEvent() {
+            
             @Override
             public void selected(int index, int subIndex) {
                 if (index == 1) {
