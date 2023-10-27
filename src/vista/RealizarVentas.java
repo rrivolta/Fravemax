@@ -231,12 +231,24 @@ public class RealizarVentas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
    private void jCBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBox1ActionPerformed
+       if (jCBox1.getSelectedIndex() == -1) {
+           JOptionPane.showMessageDialog(this, "Seleccione un cliente");
+           return;
+       }
        jDFecha.setEnabled(true);
    }//GEN-LAST:event_jCBox1ActionPerformed
 
    private void jCBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBox2ActionPerformed
-      jBRegistar.setEnabled(true);
-      jBQuitar.setEnabled(true);
+      if (jCBox2.getSelectedIndex() == -1) {
+          //JOptionPane.showMessageDialog(this, "Seleccione un producto");
+          if (jTable.getRowCount() == 0) {
+              jBRegistar.setEnabled(false);
+              jBQuitar.setEnabled(false);   
+          }
+           return;
+       }
+       jBRegistar.setEnabled(true);
+       jBQuitar.setEnabled(true);
       try{
           Producto prod = (Producto) jCBox2.getSelectedItem();
           ProductoData pd = new ProductoData();
@@ -352,6 +364,7 @@ public class RealizarVentas extends javax.swing.JPanel {
     }
     
     private void cargarComboClientes() {
+        jCBox1.addItem(null);
         ClienteData cd = new ClienteData();
         for (Cliente cli : cd.listarClientes()) {
             if(cli.isEstado()){

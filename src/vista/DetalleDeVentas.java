@@ -7,6 +7,7 @@ import entidades.Venta;
 import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;;
 
@@ -156,10 +157,9 @@ public class DetalleDeVentas extends javax.swing.JPanel {
        limpiarTabla(jTable, modeloTabla);
        Venta venta = (Venta) jCBox.getSelectedItem();
 
-       DetalleVtaData dvd = new DetalleVtaData();
-       DetalleVenta dv = dvd.buscarDetalle(venta.getIdVenta());
-
        try {
+           DetalleVtaData dvd = new DetalleVtaData();
+           DetalleVenta dv = dvd.buscarDetalle(venta.getIdVenta());
            Set<Producto> hs = new HashSet<>(dv.getProductos());
            double precioTotal = 0.0;
 
@@ -173,6 +173,7 @@ public class DetalleDeVentas extends javax.swing.JPanel {
 
            jTImporte.setText(String.valueOf(precioTotal));
        } catch (NullPointerException ex) {
+           JOptionPane.showMessageDialog(this, "Seleccione una venta");
            return;
        }
 
@@ -206,6 +207,7 @@ public class DetalleDeVentas extends javax.swing.JPanel {
     }
     
     private void cargarCombo() {
+        jCBox.addItem(null);
         VentaData vd = new VentaData();
         for (Venta venta : vd.listarVentas()) {
             jCBox.addItem(venta);

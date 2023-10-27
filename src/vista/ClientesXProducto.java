@@ -10,7 +10,9 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 public class ClientesXProducto extends javax.swing.JPanel {
+    
     private boolean comboCargado = false;
     private DefaultTableModel modeloTabla = new DefaultTableModel() {
         public boolean isCellEditable(int r, int c) {

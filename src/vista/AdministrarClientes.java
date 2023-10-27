@@ -43,7 +43,7 @@ public class AdministrarClientes extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(157, 196, 162));
         setForeground(new java.awt.Color(204, 255, 204));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
         jLabel1.setText("Administrar Clientes");
@@ -53,18 +53,6 @@ public class AdministrarClientes extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
         jLabel3.setText("Apellido");
-
-        jTDire.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTDireActionPerformed(evt);
-            }
-        });
-
-        jTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTelefonoActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
         jLabel4.setText("Dirección");
@@ -79,7 +67,7 @@ public class AdministrarClientes extends javax.swing.JPanel {
         jBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_24.png"))); // NOI18N
         jBuscar.setText("Buscar");
         jBuscar.setContentAreaFilled(false);
-        jBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBuscar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_24.png"))); // NOI18N
         jBuscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar_32.png"))); // NOI18N
@@ -94,7 +82,7 @@ public class AdministrarClientes extends javax.swing.JPanel {
         jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir_24.png"))); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.setContentAreaFilled(false);
-        jBSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir_24.png"))); // NOI18N
         jBSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salir_32.png"))); // NOI18N
@@ -109,7 +97,7 @@ public class AdministrarClientes extends javax.swing.JPanel {
         jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar_24.png"))); // NOI18N
         jBEliminar.setText("Eliminar");
         jBEliminar.setContentAreaFilled(false);
-        jBEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBEliminar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar_24.png"))); // NOI18N
         jBEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar_32.png"))); // NOI18N
@@ -124,7 +112,7 @@ public class AdministrarClientes extends javax.swing.JPanel {
         jBModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar_24.png"))); // NOI18N
         jBModificar.setText("Modificar");
         jBModificar.setContentAreaFilled(false);
-        jBModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBModificar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar_24.png"))); // NOI18N
         jBModificar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar_32.png"))); // NOI18N
@@ -139,7 +127,7 @@ public class AdministrarClientes extends javax.swing.JPanel {
         jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar_24.png"))); // NOI18N
         jBGuardar.setText("Guardar");
         jBGuardar.setContentAreaFilled(false);
-        jBGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBGuardar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar_24.png"))); // NOI18N
         jBGuardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/guardar_32.png"))); // NOI18N
@@ -154,7 +142,7 @@ public class AdministrarClientes extends javax.swing.JPanel {
         jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar_24.png"))); // NOI18N
         jBAgregar.setText("Agregar");
         jBAgregar.setContentAreaFilled(false);
-        jBAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBAgregar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar_24.png"))); // NOI18N
         jBAgregar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar_32.png"))); // NOI18N
@@ -168,23 +156,18 @@ public class AdministrarClientes extends javax.swing.JPanel {
         jRActivo.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
         jRActivo.setText("Cliente activo");
         jRActivo.setContentAreaFilled(false);
-        jRActivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRActivo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jRActivo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jRActivo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jRActivoMouseClicked(evt);
             }
         });
-        jRActivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRActivoActionPerformed(evt);
-            }
-        });
 
         jRInactivo.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
         jRInactivo.setText("Cliente inactivo");
         jRInactivo.setContentAreaFilled(false);
-        jRInactivo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRInactivo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jRInactivo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jRInactivo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -296,13 +279,19 @@ public class AdministrarClientes extends javax.swing.JPanel {
       activarCampos();
       jBEliminar.setEnabled(true);
       jBModificar.setEnabled(true);
+      if(!jRActivo.isEnabled()){
+          jRActivo.setEnabled(true);
+      }
+      if(!jRInactivo.isEnabled()){
+          jRInactivo.setEnabled(true);
+      }
 
       try {
          int idCliente = Integer.parseInt(jTBuscarid.getText());
          ClienteData cd = new ClienteData();
          Cliente cliente = cd.buscarCliente(idCliente);
          if (cliente.getIdCliente() == 0) {
-              JOptionPane.showMessageDialog(this, "No existe el cliente");
+              JOptionPane.showMessageDialog(this, "No existe el cliente con ID : "+ idCliente );
               desactivarCampos();
               jBEliminar.setEnabled(false);
               jBModificar.setEnabled(false);
@@ -320,12 +309,15 @@ public class AdministrarClientes extends javax.swing.JPanel {
               jRActivo.setSelected(false);
           }
 
-      }catch(NullPointerException ex){
-
-         JOptionPane.showMessageDialog(this, "Ingrese un ID válido");
+      /*}catch(NullPointerException ex){
+         JOptionPane.showMessageDialog(this, "Ingrese un ID válido");*/
 
       }catch (NumberFormatException ex){
          JOptionPane.showMessageDialog(null, "Error en el campo IDCliente. Ingrese solo numeros");
+          desactivarCampos();
+          jBEliminar.setEnabled(false);
+          jBModificar.setEnabled(false);
+          limpiar();
       }
    }//GEN-LAST:event_jBuscarActionPerformed
 
@@ -339,6 +331,8 @@ public class AdministrarClientes extends javax.swing.JPanel {
          int idCliente = Integer.parseInt(jTBuscarid.getText());
          ClienteData cd = new ClienteData();
          cd.eliminarCliente(idCliente);
+         jRActivo.setSelected(false);
+         jRInactivo.setSelected(false);
       } catch (NullPointerException ex) {
          JOptionPane.showMessageDialog(this, "Ingrese un ID válido");
 
@@ -403,6 +397,12 @@ public class AdministrarClientes extends javax.swing.JPanel {
       jBGuardar.setEnabled(true);
       jRActivo.setEnabled(false);
       jRInactivo.setEnabled(false);
+       if (jRActivo.isSelected()) {
+           jRActivo.setSelected(false);
+       }
+       if (jRInactivo.isSelected()) {
+           jRInactivo.setSelected(false);
+       }
 
    }//GEN-LAST:event_jBAgregarActionPerformed
 
@@ -413,18 +413,6 @@ public class AdministrarClientes extends javax.swing.JPanel {
     private void jRInactivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRInactivoMouseClicked
         jRActivo.setSelected(false);
     }//GEN-LAST:event_jRInactivoMouseClicked
-
-    private void jRActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRActivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRActivoActionPerformed
-
-    private void jTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTelefonoActionPerformed
-
-    private void jTDireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTDireActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTDireActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

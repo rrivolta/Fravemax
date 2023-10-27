@@ -322,11 +322,17 @@ public class RegistrarProductos extends javax.swing.JPanel {
             jTPrecioActual.setText(""+producto.getPrecioActual());
             jTStock.setText(""+producto.getStock());
         }catch(NullPointerException ex){
-            JOptionPane.showMessageDialog(this, "Ingrese un ID válido");
+            JOptionPane.showMessageDialog(this, "No existe el producto");
             limpiar();
+            desactivarCampos();
+            jBEliminar.setEnabled(false);
+            jBModificar.setEnabled(false);
         }catch (NumberFormatException ex){
             JOptionPane.showMessageDialog(null, "Error en el campo IDProducto. Ingrese solo numeros");
             limpiar();
+            desactivarCampos();
+            jBEliminar.setEnabled(false);
+            jBModificar.setEnabled(false);
         }
     }//GEN-LAST:event_jBuscarActionPerformed
 
